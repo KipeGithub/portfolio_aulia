@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae - Aulia Ferina Sendhitasari, S.Kom., M.Kom. | Akademisi Sistem Informasi & Bisnis Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f2942;
+      --primary-light: #1e3a8a;
+      --accent: #9e1c23;
+      --accent-soft: #fef2f2;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --text-dark: #0f172a;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e1;
+      --bg: #ffffff;
+      --tag-bg: #f1f5f9;
+      --academic-gold: #b45309;
+      --academic-gold-bg: #fffbeb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      line-height: 1.5;
+      font-size: 13px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* TOP TOOLBAR */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      background: #0f2942;
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(15, 41, 66, 0.15);
+    }
+
+    .toolbar-title {
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* MODE SWITCHER (FULL vs 1-PAGE) */
+    .mode-switcher-cv {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 2px;
+      gap: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mode-btn-cv {
+      background: transparent;
+      border: none;
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .mode-btn-cv:hover:not(.active) {
+      color: #fff;
+    }
+
+    .mode-btn-cv.active {
+      background: #1e3a8a;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(30, 58, 138, 0.4);
+    }
+
+    .mode-btn-cv[data-mode="1page"].active {
+      background: #9e1c23;
+      box-shadow: 0 2px 8px rgba(158, 28, 35, 0.4);
+    }
+
+    /* LANG SWITCHER */
+    .lang-switcher-cv {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 2px;
+      gap: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .lang-btn-cv {
+      background: transparent;
+      border: none;
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn-cv:hover:not(.active) {
+      color: #fff;
+    }
+
+    .lang-btn-cv.active {
+      background: #ffffff;
+      color: #0f2942;
+      font-weight: 700;
+    }
+
+    .btn-action-cv {
+      background: #9e1c23;
+      color: #fff;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-action-cv:hover {
+      background: #b91c1c;
+    }
+
+    .btn-outline-cv {
+      background: transparent;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-outline-cv:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* CV CONTAINER */
+    .cv-container {
+      max-width: 860px;
+      margin: 32px auto;
+      background: #ffffff;
+      padding: 48px;
+      border-radius: 8px;
+      box-shadow: 0 4px 25px rgba(15, 41, 66, 0.08);
+      position: relative;
+    }
+
+    /* HEADER */
+    .cv-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .cv-header-info {
+      flex: 1;
+    }
+
+    .cv-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .cv-headline {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cv-badge-academic {
+      background: var(--academic-gold-bg);
+      color: var(--academic-gold);
+      border: 1px solid #fde68a;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cv-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .cv-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cv-contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cv-contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .cv-avatar {
+      width: 105px;
+      height: 135px;
+      border-radius: 6px;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+    }
+
+    /* SECTIONS */
+    .cv-section {
+      margin-bottom: 22px;
+    }
+
+    .cv-section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cv-section-title::before {
+      content: '';
+      width: 4px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .cv-summary-text {
+      color: var(--text);
+      font-size: 12.8px;
+      line-height: 1.65;
+      text-align: justify;
+    }
+
+    /* ITEM CARDS */
+    .cv-item {
+      margin-bottom: 16px;
+      page-break-inside: avoid;
+    }
+
+    .cv-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .cv-item-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .cv-item-subtitle {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--primary-light);
+    }
+
+    .cv-item-date {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cv-item-desc {
+      font-size: 12.3px;
+      color: var(--text);
+      line-height: 1.55;
+      margin-top: 4px;
+    }
+
+    .cv-item-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 6px;
+    }
+
+    .cv-item-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 4px;
+      font-size: 12.3px;
+      line-height: 1.5;
+    }
+
+    .cv-item-list li::before {
+      content: '•';
+      position: absolute;
+      left: 3px;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* ACADEMIC RESEARCH CALLOUT BOX */
+    .cv-callout {
+      background: #f8fafc;
+      border-left: 3px solid var(--primary-light);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .cv-callout-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cv-callout-desc {
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* BADGES & TAGS */
+    .cv-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .cv-tag {
+      background: var(--tag-bg);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      font-size: 11.2px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* GRID FOR SKILLS / COURSES */
+    .cv-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .cv-card-box {
+      background: #fdfefe;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+
+    .cv-card-box h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 4px;
+    }
+
+    /* 1-PAGE COMPACT OVERRIDES */
+    body.cv-mode-1page .cv-container {
+      padding: 28px 36px;
+      margin: 16px auto;
+    }
+
+    body.cv-mode-1page .cv-header {
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    body.cv-mode-1page .cv-name {
+      font-size: 21px;
+      margin-bottom: 3px;
+    }
+
+    body.cv-mode-1page .cv-headline {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    body.cv-mode-1page .cv-avatar {
+      width: 82px;
+      height: 104px;
+    }
+
+    body.cv-mode-1page .cv-contacts {
+      font-size: 11.2px;
+      gap: 8px 14px;
+    }
+
+    body.cv-mode-1page .cv-section {
+      margin-bottom: 12px;
+    }
+
+    body.cv-mode-1page .cv-section-title {
+      font-size: 12.5px;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    body.cv-mode-1page .cv-summary-text {
+      font-size: 11.5px;
+      line-height: 1.45;
+    }
+
+    body.cv-mode-1page .cv-item {
+      margin-bottom: 8px;
+    }
+
+    body.cv-mode-1page .cv-item-title {
+      font-size: 12.2px;
+    }
+
+    body.cv-mode-1page .cv-item-subtitle {
+      font-size: 11.5px;
+    }
+
+    body.cv-mode-1page .cv-item-desc,
+    body.cv-mode-1page .cv-item-list li {
+      font-size: 11.2px;
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    body.cv-mode-1page .cv-callout {
+      padding: 6px 10px;
+      margin-top: 4px;
+      font-size: 11px;
+    }
+
+    body.cv-mode-1page .cv-card-box {
+      padding: 8px 10px;
+    }
+
+    body.cv-mode-1page .cv-tag {
+      font-size: 10px;
+      padding: 1px 6px;
+    }
+
+    /* HIDE IN 1-PAGE MODE TO ENSURE SINGLE PAGE FIT */
+    body.cv-mode-1page .hide-in-1page {
+      display: none !important;
+    }
+
+    /* PRINT RULES */
+    @media print {
+      body {
+        background: #ffffff !important;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .cv-container {
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm 12mm 15mm;
+      }
+
+      body.cv-mode-1page @page {
+        margin: 8mm 10mm 8mm 10mm;
+      }
+    }
+  </style>
+</head>
+<body class="cv-mode-full">
+
+  <!-- TOP TOOLBAR -->
+  <header class="toolbar">
+    <div class="toolbar-title">
+      <a href="index.html" class="btn-outline-cv" style="padding: 4px 10px;">
+        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span data-i18n="tb_back">Kembali ke Portofolio</span>
+      </a>
+      <span style="font-weight: 700; color: #fff;">Curriculum Vitae Akademik</span>
+    </div>
+
+    <div class="toolbar-actions">
+      <!-- 1-PAGE vs FULL SWITCHER -->
+      <div class="mode-switcher-cv" aria-label="CV Mode Selector">
+        <button type="button" class="mode-btn-cv active" data-mode="full" id="btnModeFull" data-i18n="tb_mode_full">Lengkap (Akademik)</button>
+        <button type="button" class="mode-btn-cv" data-mode="1page" id="btnMode1Page" data-i18n="tb_mode_1page">Ringkas (1 Halaman)</button>
+      </div>
+
+      <!-- LANGUAGE SWITCHER (ID / EN) -->
+      <div class="lang-switcher-cv" aria-label="Language Selector">
+        <button type="button" class="lang-btn-cv active" data-lang="id" id="btnLangId">ID</button>
+        <button type="button" class="lang-btn-cv" data-lang="en" id="btnLangEn">EN</button>
+      </div>
+
+      <!-- PRINT BUTTON -->
+      <button type="button" class="btn-action-cv" onclick="window.print()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+        </svg>
+        <span data-i18n="tb_print">Cetak / Unduh PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CV WRAPPER -->
+  <main class="cv-container">
+
+    <!-- HEADER SECTION -->
+    <header class="cv-header">
+      <div class="cv-header-info">
+        <h1 class="cv-name">Aulia Ferina Sendhitasari, S.Kom., M.Kom.</h1>
+        <div class="cv-headline">
+          <span data-i18n="cv_role">Akademisi dengan Pengalaman di Bidang Sistem Informasi &amp; Bisnis Digital</span>
+          <span class="cv-badge-academic" data-i18n="cv_badge_linier">Linier S1 &amp; S2 Sistem Informasi</span>
+        </div>
+        <div class="cv-contacts">
+          <div class="cv-contact-item">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Bandung, Jawa Barat, Indonesia</span>
+          </div>
+          <div class="cv-contact-item">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="https://wa.me/6282140640716" target="_blank">+62 821-4064-0716</a>
+          </div>
+          <div class="cv-contact-item">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:auliaferinas123@gmail.com">auliaferinas123@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <img src="assets/img/profile.jpg" alt="Aulia Ferina Sendhitasari, S.Kom., M.Kom." class="cv-avatar">
+    </header>
+
+    <!-- PROFIL / RINGKASAN AKADEMIK -->
+    <section class="cv-section">
+      <h2 class="cv-section-title" data-i18n="cv_sec_summary">Profil Akademik &amp; Tridharma</h2>
+      <p class="cv-summary-text" data-i18n="cv_summary_content">
+        Akademisi berdedikasi tinggi dengan latar belakang pendidikan linier <strong>Sarjana Komputer (S.Kom.)</strong> dan <strong>Magister Komputer (M.Kom.)</strong> pada bidang <strong>Sistem Informasi</strong>, Fakultas Rekayasa Industri, <strong>Universitas Telkom</strong> (Terakreditasi "Unggul" BAN-PT). Memiliki rekam jejak profesional lebih dari 3 tahun di perguruan tinggi sebagai <strong>Staf Program Studi S1 Bisnis Digital (Februari 2026 – Sekarang)</strong> dan sebelumnya sebagai <strong>Staf Sekretariat Pimpinan / SEKPIM (2023 – 2026)</strong> di Fakultas Ekonomi dan Bisnis (FEB) Telkom University. Menguasai tata kelola akademik institusi, kurikulum <em>Outcome-Based Education (OBE)</em>, penjaminan mutu akreditasi internasional/nasional, serta aktif meneliti pada domain <strong>Green Information Systems (GEEI Framework)</strong>, efisiensi energi kampus, integrasi sistem enterprise, dan transformasi bisnis digital.
+      </p>
+    </section>
+
+    <!-- RIWAYAT PENDIDIKAN FORMAL -->
+    <section class="cv-section">
+      <h2 class="cv-section-title" data-i18n="cv_sec_edu">Riwayat Pendidikan Formal (Linier S1 &amp; S2)</h2>
+
+      <!-- S2 -->
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <div>
+            <span class="cv-item-title" data-i18n="edu_s2_degree">Magister Sistem Informasi (M.Kom.) — Strata 2</span>
+            <div class="cv-item-subtitle">Universitas Telkom — Fakultas Rekayasa Industri | Bandung</div>
+          </div>
+        </div>
+        <div class="cv-item-desc">
+          <span>• <strong>IPK: 3.56 / 4.00</strong> | <strong>Total Beban: 54 SKS</strong></span><br>
+          <span>• <span data-i18n="edu_s2_status">No. Ijazah Nasional: 041057591012026100019 | Terakreditasi Unggul BAN-PT</span></span>
+        </div>
+        <div class="cv-callout">
+          <div class="cv-callout-title">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <strong data-i18n="thesis_s2_label">Tesis Magister:</strong>
+          </div>
+          <div class="cv-callout-desc" data-i18n="thesis_s2_title">
+            <em>"Perancangan GEEI FRAMEWORK Untuk Efisiensi Energi Fakultas Ekonomi Dan Bisnis Universitas Telkom"</em> (Design of the GEEI Framework for Energy Efficiency at the Faculty of Economics and Business Telkom University).
+          </div>
+        </div>
+      </div>
+
+      <!-- S1 -->
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <div>
+            <span class="cv-item-title" data-i18n="edu_s1_degree">Sarjana Sistem Informasi (S.Kom.) — Strata 1</span>
+            <div class="cv-item-subtitle">Universitas Telkom — Fakultas Rekayasa Industri | Bandung</div>
+          </div>
+        </div>
+        <div class="cv-item-desc">
+          <span>• <strong>IPK: 3.28 / 4.00</strong> | <strong>Total Beban: 149 SKS</strong></span><br>
+          <span>• <span data-i18n="edu_s1_status">No. Ijazah Nasional: 572012021002973 | Terakreditasi Unggul BAN-PT</span></span>
+        </div>
+        <div class="cv-callout">
+          <div class="cv-callout-title">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <strong data-i18n="thesis_s1_label">Skripsi Sarjana:</strong>
+          </div>
+          <div class="cv-callout-desc" data-i18n="thesis_s1_title">
+            <em>"Pengembangan Sistem Monitoring Pengumpulan Soal Ujian Berbasis Website Untuk Modul Ketua Program Studi Dengan Metode Waterfall"</em> (Development of Website-Based Exam Collection Monitoring System for Head of the Study Program Module with Waterfall Method).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENGALAMAN MANAJEMEN AKADEMIK & TATA KELOLA KAMPUS -->
+    <section class="cv-section">
+      <h2 class="cv-section-title" data-i18n="cv_sec_exp">Pengalaman Kerja &amp; Manajemen Perguruan Tinggi</h2>
+
+      <!-- PRODI BISNIS DIGITAL -->
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <div>
+            <span class="cv-item-title" data-i18n="exp_prodi_title">Staf Program Studi S1 Bisnis Digital</span>
+            <div class="cv-item-subtitle" data-i18n="exp_prodi_org">Fakultas Ekonomi dan Bisnis (FEB) — Universitas Telkom</div>
+          </div>
+          <div class="cv-item-date" data-i18n="exp_prodi_date">Februari 2026 – Sekarang</div>
+        </div>
+        <ul class="cv-item-list">
+          <li data-i18n="exp_prodi_1">Mengelola administrasi akademik, kurikulum <em>Outcome-Based Education</em> (OBE), dan koordinasi perkuliahan semester bagi seluruh dosen dan mahasiswa Prodi S1 Bisnis Digital.</li>
+          <li data-i18n="exp_prodi_2">Mengoordinasikan distribusi Rencana Pembelajaran Semester (RPS), pemenuhan portofolio asesmen mata kuliah, serta monitoring beban mengajar dosen (BOD).</li>
+          <li data-i18n="exp_prodi_3">Berperan aktif dalam tim penjaminan mutu akademik prodi untuk persiapan akreditasi nasional (LAMEMBA) dan akreditasi internasional AACSB fakultas.</li>
+          <li class="hide-in-1page" data-i18n="exp_prodi_4">Memfasilitasi administrasi program Merdeka Belajar Kampus Merdeka (MBKM), magang industri bersertifikat, dan skema kemitraan kurikulum dengan sektor bisnis.</li>
+        </ul>
+      </div>
+
+      <!-- SEKPIM FEB TELKOM UNIVERSITY -->
+      <div class="cv-item">
+        <div class="cv-item-header">
+          <div>
+            <span class="cv-item-title" data-i18n="exp_sekpim_title">Staf Sekretariat Pimpinan (SEKPIM)</span>
+            <div class="cv-item-subtitle" data-i18n="exp_sekpim_org">Fakultas Ekonomi dan Bisnis (FEB) — Universitas Telkom</div>
+          </div>
+          <div class="cv-item-date">2023 – 2026</div>
+        </div>
+        <ul class="cv-item-list">
+          <li data-i18n="exp_sekpim_1">Mengawal dan mengkoordinasikan agenda protokoler pimpinan Dekanat (Dekan, Wakil Dekan Bidang Akademik &amp; Riset, serta Wakil Dekan Bidang Sumber Daya &amp; Keuangan).</li>
+          <li data-i18n="exp_sekpim_2">Mengelola tata persuratan dinas akademik, surat keputusan dekanat, memorandum pengangkatan dosen/staf, dan jalur disposisi pimpinan secara rahasia dan sistematis.</li>
+          <li data-i18n="exp_sekpim_3">Bertindak sebagai koordinator operasional acara akademik strategis (Rapat Senat Terbuka, Yudisium Kelulusan, Rapat Kerja Dekanat, serta visitasi Asesor Akreditasi Internasional).</li>
+          <li class="hide-in-1page" data-i18n="exp_sekpim_4">Memfasilitasi sinergi komunikasi dan korespondensi resmi antara pimpinan fakultas dengan Rektorat Universitas Telkom, kementerian, dan mitra perguruan tinggi luar negeri.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KOMPETENSI MATA KULIAH SIAP DIAMPU & BIDANG RISET -->
+    <section class="cv-section">
+      <h2 class="cv-section-title" data-i18n="cv_sec_competencies">Kompetensi Pengajaran &amp; Minat Riset</h2>
+
+      <div class="cv-grid-2">
+        <div class="cv-card-box">
+          <h4 data-i18n="comp_teach_title">Mata Kuliah Siap Diampu (Bidang Pengajaran)</h4>
+          <ul class="cv-item-list" style="margin-top: 4px;">
+            <li data-i18n="teach_1">Pengantar Sistem Informasi &amp; Bisnis Digital</li>
+            <li data-i18n="teach_2">Tata Kelola TI (IT Governance / COBIT &amp; ITIL)</li>
+            <li data-i18n="teach_3">Analisis &amp; Perancangan Sistem Informasi (SDLC)</li>
+            <li data-i18n="teach_4">E-Business, E-Commerce &amp; Digital Customer Experience</li>
+            <li class="hide-in-1page" data-i18n="teach_5">Manajemen Proyek Sistem Informasi (Project Management)</li>
+            <li class="hide-in-1page" data-i18n="teach_6">Etika Profesi, Hukum Siber &amp; Hak Kekayaan Intelektual</li>
+          </ul>
+        </div>
+
+        <div class="cv-card-box">
+          <h4 data-i18n="comp_research_title">Fokus &amp; Minat Riset Ilmiah (Research Fields)</h4>
+          <ul class="cv-item-list" style="margin-top: 4px;">
+            <li data-i18n="res_1"><strong>Green Information Systems</strong> &amp; Framework Efisiensi Energi (GEEI)</li>
+            <li data-i18n="res_2"><strong>Sistem Penjaminan Mutu Pendidikan</strong> &amp; Monitoring Soal Ujian Web</li>
+            <li data-i18n="res_3"><strong>Transformasi &amp; Adopsi Bisnis Digital</strong> di Perguruan Tinggi &amp; UMKM</li>
+            <li class="hide-in-1page" data-i18n="res_4"><strong>Enterprise Application Architecture</strong> &amp; Tata Kelola Berkelanjutan</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEAHLIAN TEKNIS, METODOLOGI & BAHASA -->
+    <section class="cv-section hide-in-1page">
+      <h2 class="cv-section-title" data-i18n="cv_sec_skills">Keahlian Metodologi, Alat &amp; Bahasa</h2>
+      <div class="cv-tags">
+        <span class="cv-tag">Green IT (GEEI Framework)</span>
+        <span class="cv-tag">SDLC &amp; Waterfall Methodology</span>
+        <span class="cv-tag">Outcome-Based Education (OBE)</span>
+        <span class="cv-tag">SPMI &amp; Penjaminan Mutu Perguruan Tinggi</span>
+        <span class="cv-tag">Akreditasi BAN-PT, LAMEMBA, AACSB</span>
+        <span class="cv-tag">BPMN &amp; Enterprise Architecture</span>
+        <span class="cv-tag">Microsoft Office Suite (Advanced)</span>
+        <span class="cv-tag">Bizagi Modeler &amp; MS Visio</span>
+        <span class="cv-tag">Tata Kelola Persuratan &amp; Kesekretariatan</span>
+        <span class="cv-tag">Bahasa Indonesia (Native)</span>
+        <span class="cv-tag">Bahasa Inggris (Academic &amp; Professional)</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT FOR BILINGUAL I18N & 1-PAGE TOGGLE -->
+  <script>
+    const cvTranslations = {
+      id: {
+        tb_back: "Kembali ke Portofolio",
+        tb_mode_full: "Lengkap (Akademik)",
+        tb_mode_1page: "Ringkas (1 Halaman)",
+        tb_print: "Cetak / Unduh PDF",
+        cv_role: "Akademisi dengan Pengalaman di Bidang Sistem Informasi & Bisnis Digital",
+        cv_badge_linier: "Linier S1 & S2 Sistem Informasi",
+        cv_sec_summary: "Profil Akademik & Tridharma",
+        cv_summary_content: "Akademisi berdedikasi tinggi dengan latar belakang pendidikan linier <strong>Sarjana Komputer (S.Kom.)</strong> dan <strong>Magister Komputer (M.Kom.)</strong> pada bidang <strong>Sistem Informasi</strong>, Fakultas Rekayasa Industri, <strong>Universitas Telkom</strong> (Terakreditasi \"Unggul\" BAN-PT). Memiliki rekam jejak profesional lebih dari 3 tahun di perguruan tinggi sebagai <strong>Staf Program Studi S1 Bisnis Digital (Februari 2026 – Sekarang)</strong> dan sebelumnya sebagai <strong>Staf Sekretariat Pimpinan / SEKPIM (2023 – 2026)</strong> di Fakultas Ekonomi dan Bisnis (FEB) Telkom University. Menguasai tata kelola akademik institusi, kurikulum <em>Outcome-Based Education (OBE)</em>, penjaminan mutu akreditasi internasional/nasional, serta aktif meneliti pada domain <strong>Green Information Systems (GEEI Framework)</strong>, efisiensi energi kampus, integrasi sistem enterprise, dan transformasi bisnis digital.",
+        cv_sec_edu: "Riwayat Pendidikan Formal (Linier S1 & S2)",
+        edu_s2_degree: "Magister Sistem Informasi (M.Kom.) — Strata 2",
+        edu_s1_degree: "Sarjana Sistem Informasi (S.Kom.) — Strata 1",
+        edu_s2_status: "No. Ijazah Nasional: 041057591012026100019 | Terakreditasi Unggul BAN-PT",
+        edu_s1_status: "No. Ijazah Nasional: 572012021002973 | Terakreditasi Unggul BAN-PT",
+        thesis_s2_label: "Tesis Magister:",
+        thesis_s2_title: "\"Perancangan GEEI FRAMEWORK Untuk Efisiensi Energi Fakultas Ekonomi Dan Bisnis Universitas Telkom\" (Design of the GEEI Framework for Energy Efficiency at the Faculty of Economics and Business Telkom University).",
+        thesis_s1_label: "Skripsi Sarjana:",
+        thesis_s1_title: "\"Pengembangan Sistem Monitoring Pengumpulan Soal Ujian Berbasis Website Untuk Modul Ketua Program Studi Dengan Metode Waterfall\" (Development of Website-Based Exam Collection Monitoring System for Head of the Study Program Module with Waterfall Method).",
+        cv_sec_exp: "Pengalaman Kerja & Manajemen Perguruan Tinggi",
+        exp_prodi_title: "Staf Program Studi S1 Bisnis Digital",
+        exp_prodi_org: "Fakultas Ekonomi dan Bisnis (FEB) — Universitas Telkom",
+        exp_prodi_date: "Februari 2026 – Sekarang",
+        exp_prodi_1: "Mengelola administrasi akademik, kurikulum Outcome-Based Education (OBE), dan koordinasi perkuliahan semester bagi seluruh dosen dan mahasiswa Prodi S1 Bisnis Digital.",
+        exp_prodi_2: "Mengoordinasikan distribusi Rencana Pembelajaran Semester (RPS), pemenuhan portofolio asesmen mata kuliah, serta monitoring beban mengajar dosen (BOD).",
+        exp_prodi_3: "Berperan aktif dalam tim penjaminan mutu akademik prodi untuk persiapan akreditasi nasional (LAMEMBA) dan akreditasi internasional AACSB fakultas.",
+        exp_prodi_4: "Memfasilitasi administrasi program Merdeka Belajar Kampus Merdeka (MBKM), magang industri bersertifikat, dan skema kemitraan kurikulum dengan sektor bisnis.",
+        exp_sekpim_title: "Staf Sekretariat Pimpinan (SEKPIM)",
+        exp_sekpim_org: "Fakultas Ekonomi dan Bisnis (FEB) — Universitas Telkom",
+        exp_sekpim_1: "Mengawal dan mengkoordinasikan agenda protokoler pimpinan Dekanat (Dekan, Wakil Dekan Bidang Akademik & Riset, serta Wakil Dekan Bidang Sumber Daya & Keuangan).",
+        exp_sekpim_2: "Mengelola tata persuratan dinas akademik, surat keputusan dekanat, memorandum pengangkatan dosen/staf, dan jalur disposisi pimpinan secara rahasia dan sistematis.",
+        exp_sekpim_3: "Bertindak sebagai koordinator operasional acara akademik strategis (Rapat Senat Terbuka, Yudisium Kelulusan, Rapat Kerja Dekanat, serta visitasi Asesor Akreditasi Internasional).",
+        exp_sekpim_4: "Memfasilitasi sinergi komunikasi dan korespondensi resmi antara pimpinan fakultas dengan Rektorat Universitas Telkom, kementerian, dan mitra perguruan tinggi luar negeri.",
+        cv_sec_competencies: "Kompetensi Pengajaran & Minat Riset",
+        comp_teach_title: "Mata Kuliah Siap Diampu (Bidang Pengajaran)",
+        teach_1: "Pengantar Sistem Informasi & Bisnis Digital",
+        teach_2: "Tata Kelola TI (IT Governance / COBIT & ITIL)",
+        teach_3: "Analisis & Perancangan Sistem Informasi (SDLC)",
+        teach_4: "E-Business, E-Commerce & Digital Customer Experience",
+        teach_5: "Manajemen Proyek Sistem Informasi (Project Management)",
+        teach_6: "Etika Profesi, Hukum Siber & Hak Kekayaan Intelektual",
+        comp_research_title: "Fokus & Minat Riset Ilmiah (Research Fields)",
+        res_1: "<strong>Green Information Systems</strong> & Framework Efisiensi Energi (GEEI)",
+        res_2: "<strong>Sistem Penjaminan Mutu Pendidikan</strong> & Monitoring Soal Ujian Web",
+        res_3: "<strong>Transformasi & Adopsi Bisnis Digital</strong> di Perguruan Tinggi & UMKM",
+        res_4: "<strong>Enterprise Application Architecture</strong> & Tata Kelola Berkelanjutan",
+        cv_sec_skills: "Keahlian Metodologi, Alat & Bahasa"
+      },
+      en: {
+        tb_back: "Back to Portfolio",
+        tb_mode_full: "Full (Academic CV)",
+        tb_mode_1page: "Summary (1-Page ATS)",
+        tb_print: "Print / Save PDF",
+        cv_role: "Academician with Experience in Information Systems & Digital Business",
+        cv_badge_linier: "Linear B.Sc. & M.Sc. in Information Systems",
+        cv_sec_summary: "Academic Profile & Tri Dharma",
+        cv_summary_content: "Dedicated academician holding linear degrees: <strong>Bachelor of Computer Science (S.Kom.)</strong> and <strong>Master of Computer Science (M.Kom.)</strong> in <strong>Information Systems</strong> from the School of Industrial Engineering, <strong>Telkom University</strong> (Accredited \"Unggul\" by BAN-PT). Possessing over 3 years of higher education management experience as <strong>Staff of the Bachelor in Digital Business Study Program (February 2026 – Present)</strong> and previously as <strong>Executive Secretariat Staff / SEKPIM (2023 – 2026)</strong> at the Faculty of Economics and Business (FEB) Telkom University. Proficient in institutional academic governance, <em>Outcome-Based Education (OBE)</em> curricula, quality assurance for international/national accreditations, and actively researching in <strong>Green Information Systems (GEEI Framework)</strong>, campus energy efficiency, enterprise systems integration, and digital business transformation.",
+        cv_sec_edu: "Formal Higher Education (Linear Degrees)",
+        edu_s2_degree: "Master of Information Systems (M.Kom.) — Master's Degree",
+        edu_s1_degree: "Bachelor of Information Systems (S.Kom.) — Undergraduate Degree",
+        edu_s2_status: "National Certificate No: 041057591012026100019 | Accredited \"Unggul\" BAN-PT",
+        edu_s1_status: "National Certificate No: 572012021002973 | Accredited \"Unggul\" BAN-PT",
+        thesis_s2_label: "Master Thesis:",
+        thesis_s2_title: "\"Design of the GEEI Framework for Energy Efficiency at the Faculty of Economics and Business Telkom University\" (Perancangan GEEI Framework Untuk Efisiensi Energi FEB Universitas Telkom).",
+        thesis_s1_label: "Bachelor Thesis:",
+        thesis_s1_title: "\"Development of Website-Based Exam Collection Monitoring System for Head of the Study Program Module with Waterfall Method\" (Pengembangan Sistem Monitoring Pengumpulan Soal Ujian Berbasis Website).",
+        cv_sec_exp: "Higher Education Experience & Academic Governance",
+        exp_prodi_title: "Staff of Digital Business Study Program (S1)",
+        exp_prodi_org: "Faculty of Economics and Business (FEB) — Telkom University",
+        exp_prodi_date: "February 2026 – Present",
+        exp_prodi_1: "Directs day-to-day academic administration, Outcome-Based Education (OBE) curricula, and semester course schedules for lecturers and undergraduate digital business students.",
+        exp_prodi_2: "Coordinates the distribution of Semester Learning Plans (RPS), course assessment portfolios, and lecturer teaching load monitoring (BOD).",
+        exp_prodi_3: "Active member of the academic quality assurance unit preparing for national accreditation (LAMEMBA) and international accreditation (AACSB).",
+        exp_prodi_4: "Facilitates students' Merdeka Belajar Kampus Merdeka (MBKM) programs, certified corporate internships, and business sector curricular partnerships.",
+        exp_sekpim_title: "Executive Secretariat Staff (SEKPIM)",
+        exp_sekpim_org: "Faculty of Economics and Business (FEB) — Telkom University",
+        exp_sekpim_1: "Supervised and coordinated official protocol schedules for the Dean and Vice Deans (Academic, Research, Financial & Logistics).",
+        exp_sekpim_2: "Managed institutional academic official correspondence, deanship decrees, appointment memoranda, and confidential executive dispositions.",
+        exp_sekpim_3: "Operational coordinator for premier university events (Open Senate Sessions, Graduation Judicium, Faculty Strategic Meetings, and International Accreditation Assessor Visitations).",
+        exp_sekpim_4: "Bridged official coordination between faculty leadership, the Telkom University Rectorate, government ministries, and international academic partners.",
+        cv_sec_competencies: "Teaching Competencies & Research Interests",
+        comp_teach_title: "Courses Qualified to Teach (Pedagogy)",
+        teach_1: "Introduction to Information Systems & Digital Business",
+        teach_2: "IT Governance, Risk & Compliance (COBIT & ITIL)",
+        teach_3: "System Analysis & Design (SDLC, Waterfall & Agile)",
+        teach_4: "E-Business, E-Commerce & Digital Customer Experience",
+        teach_5: "Digital Information Systems Project Management",
+        teach_6: "Professional Ethics, Cyber Law & Intellectual Property Rights",
+        comp_research_title: "Scholarly Research Focus & Interests",
+        res_1: "<strong>Green Information Systems</strong> & Energy Efficiency Frameworks (GEEI)",
+        res_2: "<strong>Academic Quality Assurance Systems</strong> & Web Exam Monitoring",
+        res_3: "<strong>Digital Transformation & Adoption</strong> in Higher Education & MSMEs",
+        res_4: "<strong>Enterprise Application Architecture</strong> & Sustainable Governance",
+        cv_sec_skills: "Methodology, Software & Language Proficiencies"
+      }
+    };
+
+    let currentLang = 'id';
+    let currentMode = 'full';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const dict = cvTranslations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      document.querySelectorAll('.lang-btn-cv').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      document.documentElement.lang = lang;
+
+      // Update URL param without reload
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.body.classList.toggle('cv-mode-1page', mode === '1page');
+      document.body.classList.toggle('cv-mode-full', mode === 'full');
+
+      document.querySelectorAll('.mode-btn-cv').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+      });
+
+      // Update URL param without reload
+      const url = new URL(window.location);
+      url.searchParams.set('mode', mode);
+      window.history.replaceState({}, '', url);
+    }
+
+    // Event Listeners
+    document.querySelectorAll('.lang-btn-cv').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+    });
+
+    document.querySelectorAll('.mode-btn-cv').forEach(btn => {
+      btn.addEventListener('click', () => setMode(btn.getAttribute('data-mode')));
+    });
+
+    // Check query params on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get('lang');
+      const urlMode = params.get('mode');
+
+      if (urlLang === 'en' || urlLang === 'id') {
+        setLanguage(urlLang);
+      } else {
+        setLanguage('id'); // Default ID
+      }
+
+      if (urlMode === '1page' || urlMode === 'full') {
+        setMode(urlMode);
+      } else {
+        setMode('full'); // Default full
+      }
+    });
+  </script>
+</body>
+</html>
